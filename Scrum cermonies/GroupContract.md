@@ -9,4 +9,4 @@ Group contract:
 - Not expected to work weekdays
 - Go over styling later
 
-Signed:
+Signed: Emilia Mässing, 
