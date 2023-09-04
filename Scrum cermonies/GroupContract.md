@@ -9,4 +9,4 @@ Group contract:
 - Not expected to work weekdays
 - Go over styling later
 
-Signed: Emilia Mässing, 
+Signed: Emilia Mässing, Filip Hedlén
