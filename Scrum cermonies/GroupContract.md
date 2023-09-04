@@ -1,12 +1,13 @@
-Group contract:
+# Group contract
 
-- Daily check in at 10 o'clock (mon-fri)
+- Daily check in at 10 o'clock (mon-fri):
 
   - Quick team meeting
-  - Reviewing scrum boarding
-  - Rise questions?
+  - Reviewing scrum board together
+  - Questions? Need help?
 
 - Not expected to work weekdays
 - Go over styling later
+- Communicating on teams
 
-Signed: Emilia Mässing, Filip Hedlén
+Signed: Emilia Mässing, Filip Hedlén, Nani Dam
