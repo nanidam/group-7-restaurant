@@ -11,3 +11,29 @@ Content-Type: application/json
         "city": "Rome"
     }
 }
+
+### Create a new customer. Id generates by mongoDb
+POST https://school-restaurant-api.azurewebsites.net/customer/create
+Content-Type: application/json
+
+{
+  "name": "Franzén",
+  "lastname": "Sebastian",
+  "email": "someone@somedomain.com",
+  "phone": "070-1112233"
+}
+
+### Get customer with ID "64f765086436ceddb351a77d"
+GET https://school-restaurant-api.azurewebsites.net/customer/64f765086436ceddb351a77d
+
+### Update customer with ID "623b85d54396b96c57bde7c3"
+PUT https://school-restaurant-api.azurewebsites.net/customer/update/623b85d54396b96c57bde7c3
+Content-Type: application/json
+
+{
+  "id": "623b85d54396b96c57bde7c3",
+  "name": "UpdatedName",
+  "lastname": "UpdatedLastName",
+  "email": "updatedemail@somedomain.com",
+  "phone": "070-2223344"
+}
