@@ -1,5 +1,4 @@
-import axios from "axios";
-import { get } from "./serviceBase";
+import { get, post } from "./serviceBase";
 import { IBooking } from "../models/IBooking";
 
 const BASEURL = import.meta.env.VITE_RESTAURANT_API_URL;
@@ -19,12 +18,12 @@ export async function getBookingsByRestaurantId(restaurantId: string) {
         const response = await get<IBooking[]>(`${BASEURL}booking/restaurant/${restaurantId}`);
         return response;
     } catch (error) {
-        console.error('Error fetching bookings by restaurant ID: ', error);
+        console.error('Error', error);
         throw error;
     }
 }
 
-export async function createBooking(bookingData: {
+export async function createBooking(bookingSpecifics: {
     restaurantId: string;
     date: string;
     time: string;
@@ -37,10 +36,10 @@ export async function createBooking(bookingData: {
     };
 }) {
     try {
-        const response = await axios.post(`${BASEURL}booking/create`, bookingData);
-        return response.data;
+        const response = await post<IBooking>(`${BASEURL}booking/create`, bookingSpecifics);
+        return response;
     } catch (error) {
-        console.error('Error creating booking: ', error);
+        console.error('Error', error);
         throw error;
     }
 }
