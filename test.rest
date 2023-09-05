@@ -11,3 +11,7 @@ Content-Type: application/json
         "city": "Rome"
     }
 }
+
+###
+
+GET https://school-restaurant-api.azurewebsites.net/restaurant/64f7598c264e4838c0d69dd5
