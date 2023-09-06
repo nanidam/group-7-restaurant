@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { getBookingsByRestaurantId } from "../services/bookingService";
-import { IBooking } from "../models/IBooking";
 import { ICustomer } from "../models/ICustomer";
 import { getCustomerById } from "../services/customerService";
 
 export function AdminPage() {
-  const [bookings, setBookings] = useState<IBooking[]>([]);
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
 
   useEffect(() => {
@@ -13,7 +11,6 @@ export function AdminPage() {
       const allBookings = await getBookingsByRestaurantId(
         "623b85d54396b96c57bde7c3"
       );
-      setBookings(allBookings);
 
       const customerData = await Promise.all(
         allBookings.map((booking) =>
