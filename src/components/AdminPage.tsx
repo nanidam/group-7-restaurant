@@ -32,17 +32,15 @@ export function AdminPage() {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <>
-          <section>
-            {customers.map((customer, index) => {
-              return (
-                <li key={index}>
-                  {customer[0].lastname}, {customer[0].name}
-                </li>
-              );
-            })}
-          </section>
-        </>
+        <section>
+          {customers.map((customer, index) => {
+            return (
+              <li key={index}>
+                {customer[0].lastname}, {customer[0].name}
+              </li>
+            );
+          })}
+        </section>
       )}
     </>
   );
