@@ -18,12 +18,12 @@ export function ContactPage() {
     <div className="wrapper">
       {localRestaurantJSON && (
         <>
-          <p className="restaurantInfo">{localRestaurantJSON[0].address}</p>
-          <p className="restaurantInfo">
+          <p className="restaurant-info">{localRestaurantJSON[0].address}</p>
+          <p className="restaurant-info">
             {localRestaurantJSON[0].zip} {localRestaurantJSON[0].city}
           </p>
-          <p className="restaurantInfo">Open: 17:00-01:00</p>
-          <p className="restaurantInfo">Phone: +39 123 12 12</p>
+          <p className="restaurant-info">Open: 17:00-01:00</p>
+          <p className="restaurant-info">Phone: +39 123 12 12</p>
         </>
       )}
     </div>
