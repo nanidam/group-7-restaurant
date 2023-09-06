@@ -21,7 +21,7 @@ export function AdminPage() {
     };
 
     fetchRestaurantBookings();
-  }, []);
+  }, [setCustomers]);
   return (
     <>
       <h1>La Trattoria</h1>
