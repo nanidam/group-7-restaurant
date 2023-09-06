@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IRestaurant } from "../models/IRestaurant";
 import { createRestaurant, getRestaurant } from "../services/restaurantService";
+import "../style/_startPage.scss";
 
 export function StartPage() {
 
@@ -41,12 +42,13 @@ export function StartPage() {
   
     return (
       <section>
-            <h1>Welcome to {restaurant[0].name}!</h1>
+            <h1>{restaurant[0].name}</h1>
             <p>
                 {restaurant[0].name} is a popular Italian restaurant located in the heart of Rome, known for its authentic Italian cuisine and cozy atmosphere. 
                 We offer classic pasta dishes, wood-fired pizzas, and delicious desserts, making it a favorite dining spot for both locals and tourists 
                 looking to experience the flavors of Italy in a traditional trattoria setting.
-            </p>       
+            </p>
+            <button>Menu</button>       
       </section>
     );
 }

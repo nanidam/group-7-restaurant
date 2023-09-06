@@ -6,7 +6,7 @@ export function MenuBar() {
         <nav>
             <ul className="menuList">
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Start</Link>
                 </li>
                 <li>
                     <Link to="/booking">Booking</Link>
@@ -15,7 +15,6 @@ export function MenuBar() {
                     <Link to="/contact">Contact</Link>
                 </li>
             </ul>
-            <span>La Trattoria</span>
         </nav>
     )
 }
