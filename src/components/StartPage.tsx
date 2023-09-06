@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import { IRestaurant } from "../models/IRestaurant";
 import { createRestaurant, getRestaurant } from "../services/restaurantService";
 
 export function StartPage() {
+
     const [restaurant, setRestaurant] = useState<IRestaurant[]>([]);
     const [isLoading, setIsLoading] = useState(true);
   
@@ -49,3 +50,4 @@ export function StartPage() {
       </section>
     );
 }
+
