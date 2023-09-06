@@ -13,7 +13,7 @@ export function FooterBar() {
     if (localRestaurantData) {
       setLocalRestaurantJSON(JSON.parse(localRestaurantData));
     }
-  }, []);
+  }, [setLocalRestaurantJSON]);
 
   return (
     <>

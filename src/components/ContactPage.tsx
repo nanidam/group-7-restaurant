@@ -12,7 +12,7 @@ export function ContactPage() {
     if (localRestaurantData) {
       setLocalRestaurantJSON(JSON.parse(localRestaurantData));
     }
-  }, []);
+  }, [setLocalRestaurantJSON]);
 
   return (
     <div className="wrapper">
