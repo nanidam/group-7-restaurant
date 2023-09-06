@@ -19,7 +19,7 @@ export function AdminPage() {
     <>
       <h1>La Trattoria</h1>
       <section>
-        <ol>
+        <ul>
           {customerName !== null ? (
             <li> {customerName}</li>
           ) : (
@@ -28,7 +28,7 @@ export function AdminPage() {
           <li>test</li>
           <li>test</li>
           <li>test</li>
-        </ol>
+        </ul>
       </section>
     </>
   );
