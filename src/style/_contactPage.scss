@@ -1,3 +1,12 @@
 .wrapper {
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .restaurantInfo{
+        color: #E8E4C7;
+        text-align: center;
+        margin: 0;
+    }
 }
