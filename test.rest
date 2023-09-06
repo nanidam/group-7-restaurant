@@ -12,6 +12,7 @@ Content-Type: application/json
     }
 }
 
+
 ### Create a new customer. Id generates by mongoDb
 POST https://school-restaurant-api.azurewebsites.net/customer/create
 Content-Type: application/json
@@ -37,3 +38,8 @@ Content-Type: application/json
   "email": "updatedemail@somedomain.com",
   "phone": "070-2223344"
 }
+
+###
+
+GET https://school-restaurant-api.azurewebsites.net/restaurant/64f7598c264e4838c0d69dd5
+
