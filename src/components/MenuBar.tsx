@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
+import '../style/_menuBar.scss';
 
 export function MenuBar() {
     return (
         <nav>
-            <span>La Trattoria</span>
-            <ul>
+            <ul className="menuList">
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Start</Link>
                 </li>
                 <li>
                     <Link to="/booking">Booking</Link>

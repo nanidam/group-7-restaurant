@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    ul.menuList {
+        display: flex;
+        margin-left: 1.7em;
+        padding: 0;
+
+        li{
+            list-style-type: none;
+            margin-right: 1em;
+            font-size: 1.5rem;
+
+            a{
+                color: #E8E4C7;
+                transition: 0.2s ease-in-out;
+
+                &:hover {
+                    color: #F9A03F;
+                }
+            }
+        }
+    }
+}
