@@ -1,6 +1,6 @@
 import { IRestaurant } from "../models/IRestaurant";
 import { useEffect, useState } from "react";
-import "../style/_contactPage.scss";
+import "../style/ContactPage.scss";
 
 export function ContactPage() {
   const [localRestaurantJSON, setLocalRestaurantJSON] = useState<
