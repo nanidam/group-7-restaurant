@@ -1,4 +1,4 @@
-import { get, post } from "./serviceBase";
+import { get, post, put, del } from "./serviceBase";
 import { IBooking } from "../models/IBooking";
 
 const BASEURL = import.meta.env.VITE_RESTAURANT_API_URL;
@@ -37,6 +37,26 @@ export async function createBooking(bookingSpecifics: {
 }) {
     try {
         const response = await post<IBooking>(`${BASEURL}booking/create`, bookingSpecifics);
+        return response;
+    } catch (error) {
+        console.error('Error', error);
+        throw error;
+    }
+}
+
+export async function updateBooking(booking: IBooking) {
+    try {
+        const response = await put<IBooking>(`${BASEURL}booking/update/${booking.id}`, booking);
+        return response;
+    } catch (error) {
+        console.error('Error', error);
+        throw error;
+    }
+}
+
+export async function deleteBooking(id: string) {
+    try {
+        const response = await del(`${BASEURL}booking/delete/${id}`);
         return response;
     } catch (error) {
         console.error('Error', error);
