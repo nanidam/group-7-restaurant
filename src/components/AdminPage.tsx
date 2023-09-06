@@ -1,3 +1,35 @@
+import { useEffect, useState } from "react";
+import { getCustomerById } from "../services/customerService";
+
 export function AdminPage() {
-  return <>admin page</>;
+  const [customerName, setCustomerName] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCustomerData = async () => {
+      const customerIdJson = await getCustomerById("64f765086436ceddb351a77d");
+      if (customerIdJson && customerIdJson.length > 0) {
+        setCustomerName(customerIdJson[0].name);
+      }
+    };
+
+    fetchCustomerData();
+  }, [setCustomerName]);
+
+  return (
+    <>
+      <h1>La Trattoria</h1>
+      <section>
+        <ol>
+          {customerName !== null ? (
+            <li> {customerName}</li>
+          ) : (
+            <li>Loading...</li>
+          )}
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+        </ol>
+      </section>
+    </>
+  );
 }
