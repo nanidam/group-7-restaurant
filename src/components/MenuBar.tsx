@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import '../style/_menuBar.scss';
 
 export function MenuBar() {
     return (
         <nav>
-            <span>La Trattoria</span>
-            <ul>
+            <ul className="menuList">
                 <li>
                     <Link to="/">Home</Link>
                 </li>
@@ -15,6 +15,7 @@ export function MenuBar() {
                     <Link to="/contact">Contact</Link>
                 </li>
             </ul>
+            <span>La Trattoria</span>
         </nav>
     )
 }
