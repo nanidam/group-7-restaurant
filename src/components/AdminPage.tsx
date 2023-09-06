@@ -5,6 +5,7 @@ import { getCustomerById } from "../services/customerService";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchRestaurantBookings = async () => {
@@ -12,30 +13,37 @@ export function AdminPage() {
         "623b85d54396b96c57bde7c3"
       );
 
+      //Promise.all = Loops all "hidden" awaits
       const customerData = await Promise.all(
         allBookings.map((booking) =>
           getCustomerById(booking.customerId as string)
         )
       );
       setCustomers(customerData);
+      setIsLoading(false);
     };
 
     fetchRestaurantBookings();
-  }, [setCustomers]);
+  }, []);
+
   return (
     <>
       <h1>La Trattoria</h1>
-      <section>
-        <ul>
-          {customers.map((customer, index) => {
-            return (
-              <li key={index}>
-                {customer[0].lastname}, {customer[0].name}
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <section>
+            {customers.map((customer, index) => {
+              return (
+                <li key={index}>
+                  {customer[0].lastname}, {customer[0].name}
+                </li>
+              );
+            })}
+          </section>
+        </>
+      )}
     </>
   );
 }

@@ -52,7 +52,7 @@ export async function createBooking(bookingSpecifics: {
 export async function updateBooking(booking: IBooking) {
   try {
     const response = await put<IBooking>(
-      `${BASEURL}booking/update/${booking.id}`,
+      `${BASEURL}booking/update/${booking._id}`,
       booking
     );
     return response;
