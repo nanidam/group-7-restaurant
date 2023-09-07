@@ -1,0 +1,17 @@
+h3 {
+    text-align: center;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+.customers-container {
+    width: 100%;
+    max-width: 500px;
+    overflow-y: scroll;
+    border: 1px solid #FBBA72;
+    padding: 10px;
+    background-color: #4E0400;
+    color: #E8E4C7;
+    font-size: 1rem;
+    margin: 0 auto;
+}

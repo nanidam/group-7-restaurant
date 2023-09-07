@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getBookingsByRestaurantId } from "../services/bookingService";
 import { ICustomer } from "../models/ICustomer";
 import { getCustomerById } from "../services/customerService";
+import "../style/AdminPage.scss";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
@@ -40,10 +41,11 @@ export function AdminPage() {
   return (
     <>
       <h1>La Trattoria</h1>
+      <h3>Guest list:</h3>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <section>
+        <section className="customers-container">
           {customers.sort(compareCustomers).map((customer, index) => {
             return (
               <li key={index}>
