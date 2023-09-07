@@ -117,9 +117,10 @@ export function AdminUpdateForm({
         value={formData.time}
         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
       />
-
-      <button type="submit">Update</button>
-      <button>Delete</button>
+      <div className="btn-wrapper">
+        <button type="submit">Update</button>
+        <button>Delete</button>
+      </div>
     </form>
   );
 }

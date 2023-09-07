@@ -1,32 +1,51 @@
 .update-form {
-    width: 500px;
+    width: 480px;
     margin-top: 50px;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #E8E4C7;
+
     .cancel-btn{
       float: right;
       width: 20px;
       padding: 0;
       margin: 0;
+      transition: ease-in 0.3s;
+      cursor: pointer;
+      
+      &:hover{
+        background-color: #FBBA72;
+        color:#4E0400;
+      }
     }
   }
   
-  label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  input {
-    width: 95%;
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input {
+  width: 95%;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+
   button {
-    background-color: #007bff;
-    color: white;
+    width: 170px;
     padding: 10px;
-    border-radius: 4px;
+    margin: 0;
+    transition: ease-in 0.3s;
     cursor: pointer;
+
+    &:hover{
+      background-color: #FBBA72;
+      color:#4E0400;
+    }
   }
+}
   
