@@ -1,12 +1,45 @@
 section {
-
     .formContainer {
         background-color: #4E0400;
-        padding: 3em;
+        border-radius: 35px;
+        padding: 7em;
+        min-width: 20em;
+
+        h3 {
+            margin-top: 0;
+            text-align: center;
+        }
         
         form {
             display: flex;
             flex-direction: column;
+
+            label {
+                margin-top: 1rem;
+                margin-left: 3px;
+            }
+
+            input {
+                padding: 12px 10px 12px 10px;
+                background-color: #52110e;
+                border-radius: 10px;
+                border: 3px solid #410602;
+            }
+
+            button {
+                align-self: center;
+                background-color: #BB4D00;
+                border-radius: 15px;
+                border: none;
+                font-size: 1.3rem;
+                padding: 13px 33px 13px 33px;
+                color: #E8E4C7;
+                transition: 0.2s ease-in-out;
+
+                &:hover {
+                    background-color: #d85a00;
+                }
+            }
         }
     }
 }
