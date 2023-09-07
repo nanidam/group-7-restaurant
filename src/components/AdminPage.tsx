@@ -3,6 +3,7 @@ import { getBookingsByRestaurantId } from "../services/bookingService";
 import { ICustomer } from "../models/ICustomer";
 import { getCustomerById } from "../services/customerService";
 import "../style/AdminPage.scss";
+import { AdminUpdateForm } from "./AdminUpdateForm";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
@@ -48,13 +49,20 @@ export function AdminPage() {
         <section className="customers-container">
           {customers.sort(compareCustomers).map((customer, index) => {
             return (
-              <li key={index}>
+              <li
+                className="customer"
+                key={index}
+                onClick={() => console.log(customer[0].name)}
+              >
                 {customer[0].lastname}, {customer[0].name}
               </li>
             );
           })}
         </section>
       )}
+      <section>
+        <AdminUpdateForm></AdminUpdateForm>
+      </section>
     </>
   );
 }

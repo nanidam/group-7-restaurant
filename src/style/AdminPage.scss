@@ -14,4 +14,14 @@ h3 {
     color: #E8E4C7;
     font-size: 1rem;
     margin: 0 auto;
+
+    .customer{
+        transition: ease-in 0.2s;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: #E8E4C7;
+            color:#4E0400
+        }
+    }
 }
