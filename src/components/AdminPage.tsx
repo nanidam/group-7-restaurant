@@ -5,6 +5,7 @@ import { getCustomerById } from "../services/customerService";
 import "../style/AdminPage.scss";
 import { AdminUpdateForm } from "./AdminUpdateForm";
 import { IBooking } from "../models/IBooking";
+import { Loader } from "./Loader";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
@@ -59,7 +60,11 @@ export function AdminPage() {
       <h1>La Trattoria</h1>
       <h3>Guest List</h3>
       {isLoading ? (
-        <div>Loading...</div>
+        <section>
+          <div className="loaderContainer">
+            <Loader></Loader>
+          </div>
+        </section>
       ) : (
         <section className="customers-container">
           {customers.sort(compareCustomers).map((customer, index) => {
