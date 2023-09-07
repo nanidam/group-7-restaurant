@@ -12,6 +12,33 @@ Content-Type: application/json
     }
 }
 
+
+### Create a new customer. Id generates by mongoDb
+POST https://school-restaurant-api.azurewebsites.net/customer/create
+Content-Type: application/json
+
+{
+  "name": "Franzén",
+  "lastname": "Sebastian",
+  "email": "someone@somedomain.com",
+  "phone": "070-1112233"
+}
+
+### Get customer with ID "64f765086436ceddb351a77d"
+GET https://school-restaurant-api.azurewebsites.net/customer/64f765086436ceddb351a77d
+
+### Update customer with ID "623b85d54396b96c57bde7c3"
+PUT https://school-restaurant-api.azurewebsites.net/customer/update/623b85d54396b96c57bde7c3
+Content-Type: application/json
+
+{
+  "id": "623b85d54396b96c57bde7c3",
+  "name": "UpdatedName",
+  "lastname": "UpdatedLastName",
+  "email": "updatedemail@somedomain.com",
+  "phone": "070-2223344"
+}
+
 ###
 
 GET https://school-restaurant-api.azurewebsites.net/restaurant/64f7598c264e4838c0d69dd5
@@ -65,5 +92,3 @@ Content-Type: application/json
 
 // Test for deleting a booking
 DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/623b85d54396b96c57bde7c3
-
-

@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+import "../style/FooterBar.scss";
 import { IRestaurant } from "../models/IRestaurant";
 import { useEffect, useState } from "react";
-import "../style/ContactPage.scss";
 
-export function ContactPage() {
+export function FooterBar() {
   const [localRestaurantJSON, setLocalRestaurantJSON] = useState<
     IRestaurant[] | null
   >(null);
@@ -15,17 +16,18 @@ export function ContactPage() {
   }, []);
 
   return (
-    <div className="wrapper">
+    <>
       {localRestaurantJSON && (
-        <>
-          <p className="restaurant-info">{localRestaurantJSON[0].address}</p>
-          <p className="restaurant-info">
-            {localRestaurantJSON[0].zip} {localRestaurantJSON[0].city}
+        <div className="footer-wrapper">
+          <Link to="/admin">
+            <button className="admin-btn">Admin</button>
+          </Link>
+          <p className="placeholder-text">
+            {localRestaurantJSON[0].name} <br />
+            Made by: Emilia, Nani, Filip
           </p>
-          <p className="restaurant-info">Open: 17:00-01:00</p>
-          <p className="restaurant-info">Phone: +39 123 12 12</p>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }

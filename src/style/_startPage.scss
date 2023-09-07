@@ -1,0 +1,35 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1{
+        font-family: 'Ingrid Darling', cursive;
+        font-size: 9.5rem;
+        color: #FBBA72;
+        margin-bottom: 0;
+        margin-top: 1em;
+    }
+
+    p {
+        max-width: 33%;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 2em;
+        border-radius: 30px;
+        padding: 1em 5em 1em 5em;
+        background-color: unset;
+        border: 1px solid #FBBA72;
+        color: #FBBA72;
+        
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            border: 1px solid #F9A03F;
+            color: #F9A03F;
+        }
+    }
+}

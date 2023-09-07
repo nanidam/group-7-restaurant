@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15%;
+    
+    .restaurant-info{
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
