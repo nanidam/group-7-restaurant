@@ -26,6 +26,10 @@ export function AdminUpdateForm({
 
   return (
     <form className="update-form">
+      <button className="cancel-btn" type="button" onClick={onCancel}>
+        X
+      </button>
+
       <label htmlFor="customerId">Customer ID</label>
       <input
         type="text"
@@ -56,9 +60,6 @@ export function AdminUpdateForm({
       />
 
       <button type="submit">Submit</button>
-      <button type="button" onClick={onCancel}>
-        Cancel
-      </button>
     </form>
   );
 }
