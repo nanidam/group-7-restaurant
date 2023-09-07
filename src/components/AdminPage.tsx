@@ -35,7 +35,7 @@ export function AdminPage() {
     };
 
     fetchRestaurantBookings();
-  }, []);
+  }, [setCustomers, setIsLoading, setAllBookings]);
 
   // Bubble sort customers list based on lastname
   const compareCustomers = (
@@ -86,6 +86,7 @@ export function AdminPage() {
             key={formKey}
             selectedCustomer={selectedCustomer}
             allBookings={allBookings}
+            setAllBookings={setAllBookings}
             onCancel={() => setShowAdminUpdateForm(false)}
           />
         )}

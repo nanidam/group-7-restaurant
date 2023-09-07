@@ -19,7 +19,7 @@ h3 {
         transition: ease-in 0.2s;
         cursor: pointer;
         
-        &:hover {
+        &:hover, &.active {
             background-color: #E8E4C7;
             color:#4E0400
         }

@@ -8,12 +8,14 @@ interface AdminUpdateFormProps {
   selectedCustomer: ICustomer | null;
   allBookings: IBooking[];
   onCancel: () => void;
+  setAllBookings: (bookings: IBooking[]) => void;
 }
 
 export function AdminUpdateForm({
   selectedCustomer,
   allBookings,
   onCancel,
+  setAllBookings,
 }: AdminUpdateFormProps) {
   const [formData, setFormData] = useState({
     bookingId: "",
@@ -45,14 +47,31 @@ export function AdminUpdateForm({
       return null;
     }
     const updatedBooking = {
+      _id: formData.bookingId,
       id: formData.bookingId,
       restaurantId: "64f862916436ceddb351c43e",
-      customerId: selectedCustomer._id,
-      numberOfGuests: formData.numberOfGuests,
       date: formData.date,
       time: formData.time,
+      numberOfGuests: formData.numberOfGuests,
+      customerId: selectedCustomer._id,
     };
+
     await updateBooking(updatedBooking);
+    onCancel();
+
+    const updatedBookings = allBookings.map((booking) => {
+      if (booking._id === updatedBooking.id) {
+        return updatedBooking;
+      }
+      return booking;
+    });
+
+    const test = allBookings.filter(
+      (booking) => booking._id === updatedBooking.id
+    );
+    console.log(test);
+    setAllBookings(updatedBookings);
+    alert("Booking has been updated! :)");
   }
 
   if (!selectedCustomer) {
