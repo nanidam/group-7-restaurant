@@ -13,7 +13,7 @@ export function AdminPage() {
         "623b85d54396b96c57bde7c3"
       );
 
-      //Promise.all = Loops all "hidden" awaits
+      // Promise.all = Loops all "hidden" awaits
       const customerData = await Promise.all(
         allBookings.map((booking) =>
           getCustomerById(booking.customerId as string)
@@ -26,6 +26,10 @@ export function AdminPage() {
     fetchRestaurantBookings();
   }, []);
 
+  const compareCustomers = (a: ICustomer[], b: ICustomer[]): number => {
+    return a[0].lastname.charCodeAt(0) - b[0].lastname.charCodeAt(0);
+  };
+
   return (
     <>
       <h1>La Trattoria</h1>
@@ -33,7 +37,7 @@ export function AdminPage() {
         <div>Loading...</div>
       ) : (
         <section>
-          {customers.map((customer, index) => {
+          {customers.sort(compareCustomers).map((customer, index) => {
             return (
               <li key={index}>
                 {customer[0].lastname}, {customer[0].name}
