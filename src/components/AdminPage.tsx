@@ -14,6 +14,7 @@ export function AdminPage() {
     null
   );
   const [showAdminUpdateForm, setShowAdminUpdateForm] = useState(false);
+  const [formKey, setFormKey] = useState(0);
 
   useEffect(() => {
     const fetchRestaurantBookings = async () => {
@@ -50,6 +51,7 @@ export function AdminPage() {
   const handleCustomerClick = (customer: ICustomer) => {
     setSelectedCustomer(customer);
     setShowAdminUpdateForm(true);
+    setFormKey((prevKey) => prevKey + 1);
   };
 
   return (
@@ -77,6 +79,7 @@ export function AdminPage() {
       <section>
         {showAdminUpdateForm && selectedCustomer && (
           <AdminUpdateForm
+            key={formKey}
             selectedCustomer={selectedCustomer}
             allBookings={allBookings}
             onCancel={() => setShowAdminUpdateForm(false)}
