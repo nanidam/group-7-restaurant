@@ -84,7 +84,7 @@ Content-Type: application/json
     "restaurantId": "623b85d54396b96c57bde7c3",
     "date": "2022-01-01",
     "time": "18:00",
-    "numberOfGuests": 4,
+    "numberOfGuests": 1,
     "customerId": "623b85d54396b96c57bde7c3"
 }
 

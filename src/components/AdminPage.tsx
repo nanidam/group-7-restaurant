@@ -22,7 +22,6 @@ export function AdminPage() {
       const getAllBookings = await getBookingsByRestaurantId(
         "623b85d54396b96c57bde7c3"
       );
-      console.log(getAllBookings);
 
       // Promise.all = Loops all "hidden" awaits
       const customerData = await Promise.all(
