@@ -94,3 +94,5 @@ Content-Type: application/json
 DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/623b85d54396b96c57bde7c3
 
 
+=========
+>>>>>>>>> Temporary merge branch 2

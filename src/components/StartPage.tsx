@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IRestaurant } from "../models/IRestaurant";
 import { createRestaurant, getRestaurant } from "../services/restaurantService";
 import "../style/_startPage.scss";
+import { Loader } from "./Loader";
 
 export function StartPage() {
 
@@ -37,7 +38,13 @@ export function StartPage() {
     }, []);
   
     if(isLoading) {
-        return <div>Loading...</div>; 
+        return (
+          <section>
+            <div className="loaderContainer">
+              <Loader></Loader>
+            </div>
+          </section>
+        )
     }
   
     return (
@@ -48,7 +55,7 @@ export function StartPage() {
                 We offer classic pasta dishes, wood-fired pizzas, and delicious desserts, making it a favorite dining spot for both locals and tourists 
                 looking to experience the flavors of Italy in a traditional trattoria setting.
             </p>
-            <button>Menu</button>       
+            <button>Menu</button>      
       </section>
     );
 }
