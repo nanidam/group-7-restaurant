@@ -60,7 +60,6 @@ export function AdminPage() {
 
   return (
     <>
-      <h1>La Trattoria</h1>
       <h3>Guest List</h3>
       {isLoading ? (
         <section>
