@@ -60,6 +60,7 @@ export function AdminUpdateForm({
       />
 
       <button type="submit">Submit</button>
+      <button>Delete</button>
     </form>
   );
 }
