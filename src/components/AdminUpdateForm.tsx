@@ -16,7 +16,7 @@ export function AdminUpdateForm({
   onCancel,
 }: AdminUpdateFormProps) {
   const [formData, setFormData] = useState({
-    id: "",
+    bookingId: "",
     numberOfGuests: 0,
     date: "",
     time: "",
@@ -27,33 +27,32 @@ export function AdminUpdateForm({
       const bookingForSelectedCustomer = allBookings.find(
         (booking) => booking.customerId === selectedCustomer._id
       );
+      console.log(bookingForSelectedCustomer);
 
-      if (bookingForSelectedCustomer) {
+      if (bookingForSelectedCustomer && bookingForSelectedCustomer._id) {
         setFormData({
-          id: bookingForSelectedCustomer._id,
+          bookingId: bookingForSelectedCustomer._id,
           numberOfGuests: bookingForSelectedCustomer.numberOfGuests,
           date: bookingForSelectedCustomer.date,
           time: bookingForSelectedCustomer.time,
         });
       }
     }
-  }, [selectedCustomer, allBookings]);
+  }, [selectedCustomer, allBookings, setFormData]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Before", allBookings);
-
-    // Create a new booking object with updated values
+    if (!selectedCustomer) {
+      return null;
+    }
     const updatedBooking = {
-      ...formData,
-      _id: formData.id,
-      restaurantId: "",
-      customerId: "",
+      id: formData.bookingId,
+      restaurantId: "64f862916436ceddb351c43e",
+      customerId: selectedCustomer._id,
       numberOfGuests: formData.numberOfGuests,
       date: formData.date,
       time: formData.time,
     };
-
     await updateBooking(updatedBooking);
   }
 
@@ -101,7 +100,7 @@ export function AdminUpdateForm({
         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
       />
 
-      <button type="submit">Submit</button>
+      <button type="submit">Update</button>
       <button>Delete</button>
     </form>
   );

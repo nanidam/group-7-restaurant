@@ -20,7 +20,7 @@ export function AdminPage() {
   useEffect(() => {
     const fetchRestaurantBookings = async () => {
       const getAllBookings = await getBookingsByRestaurantId(
-        "623b85d54396b96c57bde7c3"
+        "64f862916436ceddb351c43e"
       );
 
       // Promise.all = Loops all "hidden" awaits
@@ -93,3 +93,8 @@ export function AdminPage() {
     </>
   );
 }
+
+// 64f9d9265eecc88857a6a2ca
+// 64f9d9375eecc88857a6a2cb
+// 64f9d9495eecc88857a6a2cc
+// inserted id create booking 64f9e0405eecc88857a6a2d2

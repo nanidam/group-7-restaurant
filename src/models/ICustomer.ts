@@ -1,5 +1,5 @@
 export interface ICustomer {
-  _id: string | number | readonly string[] | undefined;
+  _id: string;
   id?: string;
   name: string;
   lastname: string;
