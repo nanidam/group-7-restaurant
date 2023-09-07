@@ -27,7 +27,6 @@ export function AdminUpdateForm({
       const bookingForSelectedCustomer = allBookings.find(
         (booking) => booking.customerId === selectedCustomer._id
       );
-      console.log(bookingForSelectedCustomer);
 
       if (bookingForSelectedCustomer && bookingForSelectedCustomer._id) {
         setFormData({

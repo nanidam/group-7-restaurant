@@ -93,8 +93,3 @@ export function AdminPage() {
     </>
   );
 }
-
-// 64f9d9265eecc88857a6a2ca
-// 64f9d9375eecc88857a6a2cb
-// 64f9d9495eecc88857a6a2cc
-// inserted id create booking 64f9e0405eecc88857a6a2d2
