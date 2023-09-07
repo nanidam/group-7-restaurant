@@ -26,8 +26,15 @@ export function AdminPage() {
     fetchRestaurantBookings();
   }, []);
 
-  const compareCustomers = (a: ICustomer[], b: ICustomer[]): number => {
-    return a[0].lastname.charCodeAt(0) - b[0].lastname.charCodeAt(0);
+  // Bubble sort customers list based on lastname
+  const compareCustomers = (
+    firstCustomer: ICustomer[],
+    secondCustomer: ICustomer[]
+  ): number => {
+    return (
+      firstCustomer[0].lastname.charCodeAt(0) -
+      secondCustomer[0].lastname.charCodeAt(0)
+    );
   };
 
   return (
