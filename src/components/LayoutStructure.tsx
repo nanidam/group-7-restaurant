@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { MenuBar } from "./MenuBar";
 import { FooterBar } from "./FooterBar";
+import { RestaurantHeading } from "./RestaurantHeading";
 
 export function LayoutStructure() {
   return (
@@ -9,6 +10,7 @@ export function LayoutStructure() {
         <MenuBar></MenuBar>
       </header>
       <main>
+        <RestaurantHeading></RestaurantHeading>
         <Outlet></Outlet>
       </main>
       <footer>
