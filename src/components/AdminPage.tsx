@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { getBookingsByRestaurantId } from "../services/bookingService";
 import { ICustomer } from "../models/ICustomer";
 import { getCustomerById } from "../services/customerService";
-import "../style/AdminPage.scss";
 import { AdminUpdateForm } from "./AdminUpdateForm";
 import { IBooking } from "../models/IBooking";
 import { Loader } from "./Loader";
+import "../style/AdminPage.scss";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
@@ -85,7 +85,7 @@ export function AdminPage() {
         </section>
       )}
 
-      <section>
+      <section className="update-wrapper">
         {showAdminUpdateForm && selectedCustomer && (
           <AdminUpdateForm
             key={formKey}

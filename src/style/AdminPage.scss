@@ -6,13 +6,14 @@ h3 {
 
 .customers-container {
     width: 100%;
+    height: 100%;
     max-width: 500px;
     overflow-y: scroll;
     border: 1px solid #FBBA72;
     padding: 10px;
     background-color: #4E0400;
     color: #E8E4C7;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0 auto;
 
     .customer{
@@ -24,4 +25,9 @@ h3 {
             color:#4E0400
         }
     }
+}
+
+.update-wrapper {
+    background-color: #550400;
+    padding-bottom: 200px;
 }
