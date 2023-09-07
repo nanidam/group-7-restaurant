@@ -3,12 +3,14 @@ import { IRestaurant } from "../models/IRestaurant";
 import { createRestaurant, getRestaurant } from "../services/restaurantService";
 import "../style/_startPage.scss";
 import { Loader } from "./Loader";
+import { RestaurantHeading } from "./RestaurantHeading";
 
 export function StartPage() {
 
     const [restaurant, setRestaurant] = useState<IRestaurant[]>([]);
     const [isLoading, setIsLoading] = useState(true);
-  
+    const localRestaurant = localStorage.getItem('restaurant');
+
     useEffect(() => {
       async function createNewRestaurant() {
         const data = await createRestaurant();
@@ -26,10 +28,8 @@ export function StartPage() {
           setIsLoading(false);
         }
       }
-  
-      const localRestaurant = localStorage.getItem('restaurant');
+      
       if (localRestaurant) {
-        console.log('Restaurant exists');
         setRestaurant(JSON.parse(localRestaurant));
         setIsLoading(false);
       } else {
@@ -49,7 +49,6 @@ export function StartPage() {
   
     return (
       <section>
-            <h1>{restaurant[0].name}</h1>
             <p>
                 {restaurant[0].name} is a popular Italian restaurant located in the heart of Rome, known for its authentic Italian cuisine and cozy atmosphere. 
                 We offer classic pasta dishes, wood-fired pizzas, and delicious desserts, making it a favorite dining spot for both locals and tourists 
