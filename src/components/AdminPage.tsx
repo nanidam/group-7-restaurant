@@ -16,6 +16,9 @@ export function AdminPage() {
   );
   const [showAdminUpdateForm, setShowAdminUpdateForm] = useState(false);
   const [formKey, setFormKey] = useState(0);
+  const [selectedCustomerIndex, setSelectedCustomerIndex] = useState<
+    number | null
+  >(null);
 
   useEffect(() => {
     const fetchRestaurantBookings = async () => {
@@ -48,8 +51,9 @@ export function AdminPage() {
     );
   };
 
-  const handleCustomerClick = (customer: ICustomer) => {
+  const handleCustomerClick = (customer: ICustomer, index: number) => {
     setSelectedCustomer(customer);
+    setSelectedCustomerIndex(index);
     setShowAdminUpdateForm(true);
     setFormKey((prevKey) => prevKey + 1);
   };
@@ -69,9 +73,11 @@ export function AdminPage() {
           {customers.sort(compareCustomers).map((customer, index) => {
             return (
               <li
-                className="customer"
+                className={`customer ${
+                  index === selectedCustomerIndex ? "active" : ""
+                }`}
                 key={index}
-                onClick={() => handleCustomerClick(customer[0])}
+                onClick={() => handleCustomerClick(customer[0], index)}
               >
                 {customer[0].lastname}, {customer[0].name}
               </li>
