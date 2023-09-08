@@ -7,6 +7,7 @@ Yesterday I created a loader component and styled the startpage. Today I wil wor
 working on creating the booking form to check for available tables.
 
 ## Filip
+Yesterday I finished the booking services and added tests for all of them. 
 
 ## Nani
 
