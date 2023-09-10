@@ -92,6 +92,8 @@ export function AdminPage() {
             selectedCustomer={selectedCustomer}
             allBookings={allBookings}
             setAllBookings={setAllBookings}
+            setCustomers={setCustomers}
+            customers={customers}
             onCancel={() => setShowAdminUpdateForm(false)}
           />
         )}

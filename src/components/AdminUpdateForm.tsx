@@ -7,6 +7,9 @@ import { deleteBooking, updateBooking } from "../services/bookingService";
 interface AdminUpdateFormProps {
   selectedCustomer: ICustomer | null;
   allBookings: IBooking[];
+  setCustomers: (customers: ICustomer[][]) => void;
+  customers: ICustomer[][];
+
   onCancel: () => void;
   setAllBookings: (bookings: IBooking[]) => void;
 }
@@ -16,6 +19,8 @@ export function AdminUpdateForm({
   allBookings,
   onCancel,
   setAllBookings,
+  setCustomers,
+  customers,
 }: AdminUpdateFormProps) {
   const [formData, setFormData] = useState({
     bookingId: "",
@@ -66,10 +71,6 @@ export function AdminUpdateForm({
       return booking;
     });
 
-    const test = allBookings.filter(
-      (booking) => booking._id === updatedBooking.id
-    );
-    console.log(test);
     setAllBookings(updatedBookings);
     alert("Booking has been updated! :)");
   }
@@ -80,8 +81,29 @@ export function AdminUpdateForm({
 
   async function handleDelete() {
     if (selectedCustomer) {
-      console.log("delete", formData.bookingId);
+      //update the state of formData
+      const updatedBooking = {
+        _id: formData.bookingId,
+        id: formData.bookingId,
+        restaurantId: "64f862916436ceddb351c43e",
+        date: formData.date,
+        time: formData.time,
+        numberOfGuests: formData.numberOfGuests,
+        customerId: selectedCustomer._id,
+      };
+
+      const updatedBookings = allBookings.filter(
+        (booking) => booking._id !== updatedBooking.id
+      );
+
+      const updatedCustomers = customers.filter(
+        (customer) => customer[0]._id !== selectedCustomer._id
+      );
+
+      setAllBookings(updatedBookings);
+      setCustomers(updatedCustomers);
       await deleteBooking(formData.bookingId);
+      onCancel();
     }
   }
 

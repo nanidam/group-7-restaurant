@@ -62,13 +62,13 @@ Content-Type: application/json
 
 {
     "restaurantId": "64f862916436ceddb351c43e",
-    "date": "2026-07-02",
-    "time": "21:00",
-    "numberOfGuests": 5,
+    "date": "2024-12-02",
+    "time": "18:00",
+    "numberOfGuests": 2,
     "customer": {
-        "name": "son",
-        "lastname": "Hello",
-        "email": "agd43s@somedomain.com",
+        "name": "Sebastian",
+        "lastname": "Musse",
+        "email": "sas221@somedomain.com",
         "phone": "070-1112234"
     }
 }
