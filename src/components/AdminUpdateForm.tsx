@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ICustomer } from "../models/ICustomer";
 import { IBooking } from "../models/IBooking";
 import "../style/AdminUpdateForm.scss";
-import { updateBooking } from "../services/bookingService";
+import { deleteBooking, updateBooking } from "../services/bookingService";
 
 interface AdminUpdateFormProps {
   selectedCustomer: ICustomer | null;
@@ -78,6 +78,13 @@ export function AdminUpdateForm({
     return null;
   }
 
+  async function handleDelete() {
+    if (selectedCustomer) {
+      console.log("delete", formData.bookingId);
+      await deleteBooking(formData.bookingId);
+    }
+  }
+
   return (
     <form className="update-form" onSubmit={handleSubmit}>
       <button className="cancel-btn" type="button" onClick={onCancel}>
@@ -119,7 +126,9 @@ export function AdminUpdateForm({
       />
       <div className="btn-wrapper">
         <button type="submit">Update</button>
-        <button>Delete</button>
+        <button type="button" onClick={handleDelete}>
+          Delete
+        </button>
       </div>
     </form>
   );

@@ -91,7 +91,7 @@ Content-Type: application/json
 ###
 
 // Test for deleting a booking
-DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/64f9e25c5eecc88857a6a2db
+DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/64f9e2bb5eecc88857a6a2e1
 
 
 
