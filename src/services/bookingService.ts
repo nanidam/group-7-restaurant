@@ -28,19 +28,19 @@ export async function getBookingsByRestaurantId(restaurantId: string) {
 
 export async function createBooking(bookingSpecifics: ICreateBooking) {
   try {
-      const localRestaurant = localStorage.getItem('restaurant');
-      if (localRestaurant) {
-          const restaurant = JSON.parse(localRestaurant);
-          bookingSpecifics.restaurantId = restaurant[0]._id;
-      } else {
-          throw new Error('Restaurant information not found');
-      }
+    const localRestaurant = localStorage.getItem('restaurant');
+    if (localRestaurant) {
+      const restaurant = JSON.parse(localRestaurant);
+      bookingSpecifics.restaurantId = restaurant[0]._id;
+    } else {
+      throw new Error('Restaurant information not found');
+    }
 
-      const response = await post<ICreateBooking>(`${BASEURL}booking/create`, bookingSpecifics);
-      return response;
+    const response = await post<ICreateBooking>(`${BASEURL}booking/create`, bookingSpecifics);
+    return response;
   } catch (error) {
-      console.error('Error', error);
-      throw error;
+    console.error('Error', error);
+    throw error;
   }
 }
 
