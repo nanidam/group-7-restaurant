@@ -1,7 +1,7 @@
+import "../style/_adminUpdateForm.scss";
 import React, { useEffect, useState } from "react";
 import { ICustomer } from "../models/ICustomer";
 import { IBooking } from "../models/IBooking";
-import "../style/AdminUpdateForm.scss";
 import { deleteBooking, updateBooking } from "../services/bookingService";
 import { UpdateBookingConfirmation } from "./UpdateBookingConfirmation";
 

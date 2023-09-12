@@ -5,7 +5,7 @@ import { getCustomerById } from "../services/customerService";
 import { AdminUpdateForm } from "./AdminUpdateForm";
 import { IBooking } from "../models/IBooking";
 import { Loader } from "./Loader";
-import "../style/AdminPage.scss";
+import "../style/_adminPage.scss";
 
 export function AdminPage() {
   const [customers, setCustomers] = useState<ICustomer[][]>([]);
