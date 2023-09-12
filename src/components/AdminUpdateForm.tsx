@@ -7,11 +7,10 @@ import { deleteBooking, updateBooking } from "../services/bookingService";
 interface AdminUpdateFormProps {
   selectedCustomer: ICustomer | null;
   allBookings: IBooking[];
-  setCustomers: (customers: ICustomer[][]) => void;
-  customers: ICustomer[][];
-
   onCancel: () => void;
   setAllBookings: (bookings: IBooking[]) => void;
+  setCustomers: (customers: ICustomer[][]) => void;
+  customers: ICustomer[][];
 }
 
 export function AdminUpdateForm({
@@ -48,31 +47,39 @@ export function AdminUpdateForm({
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     if (!selectedCustomer) {
       return null;
     }
-    const updatedBooking = {
-      _id: formData.bookingId,
-      id: formData.bookingId,
-      restaurantId: "64f862916436ceddb351c43e",
-      date: formData.date,
-      time: formData.time,
-      numberOfGuests: formData.numberOfGuests,
-      customerId: selectedCustomer._id,
-    };
 
-    await updateBooking(updatedBooking);
-    onCancel();
+    const restaurantData = localStorage.getItem("restaurant");
 
-    const updatedBookings = allBookings.map((booking) => {
-      if (booking._id === updatedBooking.id) {
-        return updatedBooking;
-      }
-      return booking;
-    });
+    if (restaurantData) {
+      const restaurant = JSON.parse(restaurantData);
 
-    setAllBookings(updatedBookings);
-    alert("Booking has been updated! :)");
+      const updatedBooking = {
+        _id: formData.bookingId,
+        id: formData.bookingId,
+        restaurantId: restaurant[0]._id,
+        date: formData.date,
+        time: formData.time,
+        numberOfGuests: formData.numberOfGuests,
+        customerId: selectedCustomer._id,
+      };
+
+      await updateBooking(updatedBooking);
+      onCancel();
+
+      const updatedBookings = allBookings.map((booking) => {
+        if (booking._id === updatedBooking.id) {
+          return updatedBooking;
+        }
+        return booking;
+      });
+
+      setAllBookings(updatedBookings);
+      alert("Booking has been updated! :)");
+    }
   }
 
   if (!selectedCustomer) {
