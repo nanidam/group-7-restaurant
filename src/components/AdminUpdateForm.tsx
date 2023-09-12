@@ -79,7 +79,6 @@ export function AdminUpdateForm({
 
       await updateBooking(updatedBooking);
       setAllBookings(updatedBookings);
-
       setShowConfirmation(true);
     }
   }
