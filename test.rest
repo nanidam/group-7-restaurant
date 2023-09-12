@@ -18,8 +18,8 @@ POST https://school-restaurant-api.azurewebsites.net/customer/create
 Content-Type: application/json
 
 {
-  "name": "Franzén",
-  "lastname": "Sebastian",
+  "name": "aaFranzén4",
+  "lastname": "Sebastian4",
   "email": "someone@somedomain.com",
   "phone": "070-1112233"
 }
@@ -51,7 +51,7 @@ GET https://school-restaurant-api.azurewebsites.net/booking/623b85d54396b96c57bd
 ###
 
 // Test for fetching bookings for a specific restaurant ID
-GET https://school-restaurant-api.azurewebsites.net/booking/restaurant/623b85d54396b96c57bde7c3
+GET https://school-restaurant-api.azurewebsites.net/booking/restaurant/64f862916436ceddb351c43e
 
 
 ###
@@ -61,15 +61,15 @@ POST https://school-restaurant-api.azurewebsites.net/booking/create
 Content-Type: application/json
 
 {
-    "restaurantId": "623b85d54396b96c57bde7c3",
-    "date": "2022-01-01",
+    "restaurantId": "64f862916436ceddb351c43e",
+    "date": "2024-12-02",
     "time": "18:00",
-    "numberOfGuests": 4,
+    "numberOfGuests": 2,
     "customer": {
-        "name": "Franzén",
-        "lastname": "Sebastian",
-        "email": "someone@somedomain.com",
-        "phone": "070-1112233"
+        "name": "Sebastian",
+        "lastname": "Musse",
+        "email": "sas221@somedomain.com",
+        "phone": "070-1112234"
     }
 }
 
@@ -82,13 +82,16 @@ Content-Type: application/json
 {
     "id": "623b85d54396b96c57bde7c3",
     "restaurantId": "623b85d54396b96c57bde7c3",
-    "date": "2022-01-01",
-    "time": "18:00",
-    "numberOfGuests": 4,
-    "customerId": "623b85d54396b96c57bde7c3"
+    "date": "2022-05-01",
+    "time": "21:00",
+    "numberOfGuests": 3,
+    "customerId": "64f9d9495eecc88857a6a2cc"
 }
 
 ###
 
 // Test for deleting a booking
-DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/623b85d54396b96c57bde7c3
+DELETE https://school-restaurant-api.azurewebsites.net/booking/delete/64f9e2bb5eecc88857a6a2e1
+
+
+

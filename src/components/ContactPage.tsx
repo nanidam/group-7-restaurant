@@ -1,6 +1,6 @@
 import { IRestaurant } from "../models/IRestaurant";
 import { useEffect, useState } from "react";
-import "../style/ContactPage.scss";
+import "../style/_contactPage.scss";
 
 export function ContactPage() {
   const [localRestaurantJSON, setLocalRestaurantJSON] = useState<
@@ -12,7 +12,7 @@ export function ContactPage() {
     if (localRestaurantData) {
       setLocalRestaurantJSON(JSON.parse(localRestaurantData));
     }
-  }, []);
+  }, [setLocalRestaurantJSON]);
 
   return (
     <div className="wrapper">

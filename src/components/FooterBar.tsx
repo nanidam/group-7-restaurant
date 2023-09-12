@@ -1,5 +1,5 @@
+import "../style/_footerBar.scss";
 import { Link } from "react-router-dom";
-import "../style/FooterBar.scss";
 import { IRestaurant } from "../models/IRestaurant";
 import { useEffect, useState } from "react";
 
@@ -13,7 +13,7 @@ export function FooterBar() {
     if (localRestaurantData) {
       setLocalRestaurantJSON(JSON.parse(localRestaurantData));
     }
-  }, []);
+  }, [setLocalRestaurantJSON]);
 
   return (
     <>
