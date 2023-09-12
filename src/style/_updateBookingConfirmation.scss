@@ -1,0 +1,38 @@
+.confirm-wrapper {
+    background-color: rgba(0, 0, 0, 0.72);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  
+    .confirm-box {
+      background-color: #550400;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 0.1rem solid #FBBA72;
+      border-radius: 20px;
+  
+      .confirm-text {
+        max-width: 90%;
+        font-size: 1.5rem;
+      }
+
+      button {
+        margin: 30px;
+        color:  #E8E4C7;        
+        transition: ease-in 0.3s;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #fbbb7258;
+        }
+      }
+    }
+  }
+  

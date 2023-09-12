@@ -12,6 +12,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-color: #550400;
+
 }
 
 a {
@@ -27,6 +29,8 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: #550400;
   color: #E8E4C7;
 }

@@ -3,9 +3,9 @@ import { IRestaurant } from "../models/IRestaurant";
 import { Loader } from "./Loader";
 
 export function RestaurantHeading() {
-    const [restaurant, setRestaurant] = useState<IRestaurant[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const localRestaurant = localStorage.getItem('restaurant');
+  const [restaurant, setRestaurant] = useState<IRestaurant[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const localRestaurant = localStorage.getItem("restaurant");
 
     useEffect(() => {
         if(localRestaurant) {
@@ -26,9 +26,9 @@ export function RestaurantHeading() {
         );
     }
 
-    return (
-        <>
-            <h1>{restaurant[0].name}</h1>
-        </>
-    );
+  return (
+    <>
+      <h1>{restaurant[0].name}</h1>
+    </>
+  );
 }
