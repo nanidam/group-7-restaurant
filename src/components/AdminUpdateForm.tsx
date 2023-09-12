@@ -88,7 +88,6 @@ export function AdminUpdateForm({
 
   async function handleDelete() {
     if (selectedCustomer) {
-      //update the state of formData
       const updatedBooking = {
         _id: formData.bookingId,
         id: formData.bookingId,
@@ -153,6 +152,7 @@ export function AdminUpdateForm({
         value={formData.time}
         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
       />
+
       <div className="btn-wrapper">
         <button type="submit">Update</button>
         <button type="button" onClick={handleDelete}>
