@@ -3,7 +3,6 @@ import { IRestaurant } from "../models/IRestaurant";
 import { createRestaurant, getRestaurant } from "../services/restaurantService";
 import "../style/_startPage.scss";
 import { Loader } from "./Loader";
-import { RestaurantHeading } from "./RestaurantHeading";
 
 export function StartPage() {
 

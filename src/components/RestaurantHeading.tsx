@@ -15,8 +15,6 @@ export function RestaurantHeading() {
             console.log('No restaurant found');
         }
     }, [localRestaurant]);
-
-    console.log(restaurant);
     
     if(isLoading) {
         return(
