@@ -10,7 +10,7 @@ export function UpdateBookingConfirmation({
   onCancel,
 }: UpdateBookingConfirmationProps) {
   function handleOKClick() {
-    onClose(); // Call the onClose function from props to close the confirmation
+    onClose();
     onCancel();
   }
 
