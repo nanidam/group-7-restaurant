@@ -77,13 +77,15 @@ export function AdminUpdateForm({
         return booking;
       });
 
-      // await updateBooking(updatedBooking);
-      // setAllBookings(updatedBookings);
-      // onCancel();
-      setShowConfirmation(true);
+      await updateBooking(updatedBooking);
+      setAllBookings(updatedBookings);
 
-      // alert("Booking has been updated! :)");
+      setShowConfirmation(true);
     }
+  }
+
+  function handleCloseConfirmation() {
+    setShowConfirmation(false);
   }
 
   if (!selectedCustomer) {
@@ -166,7 +168,10 @@ export function AdminUpdateForm({
         </div>
       </form>
       {showConfirmation && (
-        <UpdateBookingConfirmation></UpdateBookingConfirmation>
+        <UpdateBookingConfirmation
+          onClose={handleCloseConfirmation}
+          onCancel={onCancel}
+        ></UpdateBookingConfirmation>
       )}
     </>
   );
