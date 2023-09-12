@@ -3,6 +3,7 @@ import { ICustomer } from "../models/ICustomer";
 import { IBooking } from "../models/IBooking";
 import "../style/AdminUpdateForm.scss";
 import { deleteBooking, updateBooking } from "../services/bookingService";
+import { UpdateBookingConfirmation } from "./UpdateBookingConfirmation";
 
 interface AdminUpdateFormProps {
   selectedCustomer: ICustomer | null;
@@ -27,6 +28,8 @@ export function AdminUpdateForm({
     date: "",
     time: "",
   });
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
     if (selectedCustomer) {
@@ -67,9 +70,6 @@ export function AdminUpdateForm({
         customerId: selectedCustomer._id,
       };
 
-      await updateBooking(updatedBooking);
-      onCancel();
-
       const updatedBookings = allBookings.map((booking) => {
         if (booking._id === updatedBooking.id) {
           return updatedBooking;
@@ -77,8 +77,12 @@ export function AdminUpdateForm({
         return booking;
       });
 
-      setAllBookings(updatedBookings);
-      alert("Booking has been updated! :)");
+      // await updateBooking(updatedBooking);
+      // setAllBookings(updatedBookings);
+      // onCancel();
+      setShowConfirmation(true);
+
+      // alert("Booking has been updated! :)");
     }
   }
 
@@ -114,51 +118,56 @@ export function AdminUpdateForm({
   }
 
   return (
-    <form className="update-form" onSubmit={handleSubmit}>
-      <button className="cancel-btn" type="button" onClick={onCancel}>
-        X
-      </button>
-
-      <label htmlFor="customerId">Customer ID</label>
-      <input
-        type="text"
-        id="customerId"
-        defaultValue={selectedCustomer._id}
-        readOnly
-      />
-
-      <label htmlFor="numberOfGuests">Number of Guests</label>
-      <input
-        type="number"
-        id="numberOfGuests"
-        value={formData.numberOfGuests}
-        onChange={(e) =>
-          setFormData({ ...formData, numberOfGuests: Number(e.target.value) })
-        }
-      />
-
-      <label htmlFor="date">Date</label>
-      <input
-        type="date"
-        id="date"
-        value={formData.date}
-        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-      />
-
-      <label htmlFor="time">Time</label>
-      <input
-        type="time"
-        id="time"
-        value={formData.time}
-        onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-      />
-
-      <div className="btn-wrapper">
-        <button type="submit">Update</button>
-        <button type="button" onClick={handleDelete}>
-          Delete
+    <>
+      <form className="update-form" onSubmit={handleSubmit}>
+        <button className="cancel-btn" type="button" onClick={onCancel}>
+          X
         </button>
-      </div>
-    </form>
+
+        <label htmlFor="customerId">Customer ID</label>
+        <input
+          type="text"
+          id="customerId"
+          defaultValue={selectedCustomer._id}
+          readOnly
+        />
+
+        <label htmlFor="numberOfGuests">Number of Guests</label>
+        <input
+          type="number"
+          id="numberOfGuests"
+          value={formData.numberOfGuests}
+          onChange={(e) =>
+            setFormData({ ...formData, numberOfGuests: Number(e.target.value) })
+          }
+        />
+
+        <label htmlFor="date">Date</label>
+        <input
+          type="date"
+          id="date"
+          value={formData.date}
+          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+        />
+
+        <label htmlFor="time">Time</label>
+        <input
+          type="time"
+          id="time"
+          value={formData.time}
+          onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+        />
+
+        <div className="btn-wrapper">
+          <button type="submit">Update</button>
+          <button type="button" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
+      </form>
+      {showConfirmation && (
+        <UpdateBookingConfirmation></UpdateBookingConfirmation>
+      )}
+    </>
   );
 }
