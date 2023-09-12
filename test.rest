@@ -65,13 +65,13 @@ POST https://school-restaurant-api.azurewebsites.net/booking/create
 Content-Type: application/json
 
 {
-    "restaurantId": "64f862916436ceddb351c43e",
-    "date": "2024-12-02",
+    "restaurantId": "64f9bca15eecc88857a6a2a8",
+    "date": "2023-12-02",
     "time": "18:00",
-    "numberOfGuests": 2,
+    "numberOfGuests": 6,
     "customer": {
-        "name": "Sebastian",
-        "lastname": "Musse",
+        "name": "Emilia",
+        "lastname": "E",
         "email": "sas221@somedomain.com",
         "phone": "070-1112234"
     }

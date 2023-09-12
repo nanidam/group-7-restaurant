@@ -1,27 +1,32 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import "../style/bookingPage.scss";
-import { IRestaurant } from "../models/IRestaurant";
 import { getBookingsByRestaurantId } from "../services/bookingService";
 import { IBooking } from "../models/IBooking";
 
 export function BookingPage() {
-    const [restaurant, setRestaurant] = useState<IRestaurant[]>([]);
+    const [allBookings, setAllBookings] = useState<IBooking[]>([]);
     const [inputDate, setInputDate] = useState('');
     const [inputGuestAmount, setInputGuestAmount] = useState(0);
-    const [bookings, setBookings] = useState<IBooking[]>([]);
-
-    const localRestaurant = localStorage.getItem('restaurant');
+    const [isFullyBooked, setIsFullyBooked] = useState(false);
 
     useEffect(() => {
-        if(localRestaurant) {
-            setRestaurant(JSON.parse(localRestaurant));
-        } else {
-            console.log('No restaurant found');
+        async function fetchAllBookings() {
+            const localRestaurant = localStorage.getItem('restaurant');
+            if(localRestaurant) {
+                const restaurant = (JSON.parse(localRestaurant));
+                const bookings = await getBookingsByRestaurantId(restaurant[0]._id);
+
+                setAllBookings(bookings);
+            } else {
+                console.log('No restaurant found');
+            }
         }
-    }, [localRestaurant]);
+
+       fetchAllBookings();
+    }, [setAllBookings]);
 
     function handleDateChange(e: ChangeEvent<HTMLInputElement>) {
-        setInputDate(e.target.value); //Se till att lagra i samma format som api-bokningarna
+        setInputDate(e.target.value);
     }
 
     function handleNumberChange(e: ChangeEvent<HTMLInputElement>) {
@@ -30,21 +35,26 @@ export function BookingPage() {
 
     function handleSubmit(e: FormEvent) {
         e.preventDefault();
-        
-        fetchBookings(restaurant[0].id);
-        /*Logik för att skicka iväg ett anrop och se om det finns bord lediga
-            If- Bord tillgängligt - skickar en vidare & anropar funktion Filip bygger på
-            Else - Visa errormeddelande och be om ny förfrågan
-        */
+        setIsFullyBooked(false);
+
+        allBookings.map((booking) => {
+            if(inputDate === booking.date) {
+                console.log('There are reservations made this date');
+                checkBookingsOnMatchingDay();
+            } else {
+                console.log('No bookings this date, A reservation can be made');
+            }
+        })
     }
 
-    async function fetchBookings(id: string) {
-        try {
-            const data = await getBookingsByRestaurantId(id);
-            console.log(data);
-            setBookings(data);
-        } catch (error) {
-            console.log('Error fetching bookings', error);
+    function checkBookingsOnMatchingDay() {
+        const bookingAmount= allBookings.filter((booking) => inputDate === booking.date);
+
+        if(bookingAmount.length < 30) {
+            console.log('Available tables left, A reservation can be made');
+        } else if(bookingAmount.length == 30) {
+            console.log('Fully booked, Alert user');
+            setIsFullyBooked(true);
         }
     }
 
@@ -52,13 +62,14 @@ export function BookingPage() {
         <>
             <section>
                 <div className="formContainer">
-                    <h3>Create Booking</h3>
+                    <h3>Create table reservation</h3>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="date">Date</label>
-                        <input type="date" name="date" onChange={handleDateChange}></input>
+                        <input type="date" name="date" onChange={handleDateChange} required></input>
                         <label htmlFor="quantity">Number of Guests</label>
-                        <input type="number" name="quantity" min="1" max="6" onChange={handleNumberChange}></input>
+                        <input type="number" name="quantity" min="1" max="6" onChange={handleNumberChange} required></input>
                         <button>Search</button>
+                        <span>{isFullyBooked? 'Fully booked, Please choose another date' : ''}</span>
                     </form>
                 </div>
             </section>

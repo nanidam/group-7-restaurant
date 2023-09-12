@@ -1,4 +1,5 @@
 section {
+    padding-bottom: 10em;
     .formContainer {
         background-color: #4E0400;
         border-radius: 35px;
@@ -39,6 +40,10 @@ section {
                 &:hover {
                     background-color: #d85a00;
                 }
+            }
+
+            span {
+                margin-top: 2em;
             }
         }
     }
