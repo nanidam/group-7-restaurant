@@ -22,19 +22,24 @@ export function AdminPage() {
 
   useEffect(() => {
     const fetchRestaurantBookings = async () => {
-      const getAllBookings = await getBookingsByRestaurantId(
-        "64f862916436ceddb351c43e"
-      );
+      const restaurantData = localStorage.getItem("restaurant");
 
-      // Promise.all = Loops all "hidden" awaits
-      const customerData = await Promise.all(
-        getAllBookings.map((booking) =>
-          getCustomerById(booking.customerId as string)
-        )
-      );
-      setCustomers(customerData);
-      setIsLoading(false);
-      setAllBookings(getAllBookings);
+      if (restaurantData) {
+        const restaurant = JSON.parse(restaurantData);
+        const getAllBookings = await getBookingsByRestaurantId(
+          restaurant[0]._id
+        );
+
+        // Promise.all = Loops all "hidden" awaits
+        const customerData = await Promise.all(
+          getAllBookings.map((booking) =>
+            getCustomerById(booking.customerId as string)
+          )
+        );
+        setCustomers(customerData);
+        setIsLoading(false);
+        setAllBookings(getAllBookings);
+      }
     };
 
     fetchRestaurantBookings();
