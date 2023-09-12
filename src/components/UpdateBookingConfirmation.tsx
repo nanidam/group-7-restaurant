@@ -1,4 +1,4 @@
-import "../style/UpdateBookingConfirmation.scss";
+import "../style/_updateBookingConfirmation.scss";
 
 interface UpdateBookingConfirmationProps {
   onClose: () => void;
