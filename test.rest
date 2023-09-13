@@ -1,5 +1,6 @@
 //Testfile for all CRUD operations
 
+### Create restaurant
 POST https://school-restaurant-api.azurewebsites.net/restaurant/create
 Content-Type: application/json
 
@@ -11,6 +12,9 @@ Content-Type: application/json
         "city": "Rome"
     }
 }
+
+### Get restaurant
+GET https://school-restaurant-api.azurewebsites.net/restaurant/64f9bca15eecc88857a6a2a8
 
 
 ### Create a new customer. Id generates by mongoDb
@@ -51,7 +55,7 @@ GET https://school-restaurant-api.azurewebsites.net/booking/623b85d54396b96c57bd
 ###
 
 // Test for fetching bookings for a specific restaurant ID
-GET https://school-restaurant-api.azurewebsites.net/booking/restaurant/64f862916436ceddb351c43e
+GET https://school-restaurant-api.azurewebsites.net/booking/restaurant/64f9bca15eecc88857a6a2a8
 
 
 ###
@@ -61,13 +65,13 @@ POST https://school-restaurant-api.azurewebsites.net/booking/create
 Content-Type: application/json
 
 {
-    "restaurantId": "64f862916436ceddb351c43e",
-    "date": "2024-12-02",
+    "restaurantId": "64f9bca15eecc88857a6a2a8",
+    "date": "2023-12-02",
     "time": "18:00",
-    "numberOfGuests": 2,
+    "numberOfGuests": 6,
     "customer": {
-        "name": "Sebastian",
-        "lastname": "Musse",
+        "name": "Emilia",
+        "lastname": "E",
         "email": "sas221@somedomain.com",
         "phone": "070-1112234"
     }

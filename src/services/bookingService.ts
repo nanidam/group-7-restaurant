@@ -1,5 +1,6 @@
 import { del, get, post, put } from "./serviceBase";
 import { IBooking } from "../models/IBooking";
+import { ICreateBooking } from "../models/ICreateBooking";
 
 const BASEURL = import.meta.env.VITE_RESTAURANT_API_URL;
 
@@ -25,26 +26,20 @@ export async function getBookingsByRestaurantId(restaurantId: string) {
   }
 }
 
-export async function createBooking(bookingSpecifics: {
-  restaurantId: string;
-  date: string;
-  time: string;
-  numberOfGuests: number;
-  customer: {
-    name: string;
-    lastname: string;
-    email: string;
-    phone: string;
-  };
-}) {
+export async function createBooking(bookingSpecifics: ICreateBooking) {
   try {
-    const response = await post<IBooking>(
-      `${BASEURL}booking/create`,
-      bookingSpecifics
-    );
+    const localRestaurant = localStorage.getItem('restaurant');
+    if (localRestaurant) {
+      const restaurant = JSON.parse(localRestaurant);
+      bookingSpecifics.restaurantId = restaurant[0]._id;
+    } else {
+      throw new Error('Restaurant information not found');
+    }
+
+    const response = await post<ICreateBooking>(`${BASEURL}booking/create`, bookingSpecifics);
     return response;
   } catch (error) {
-    console.error("Error", error);
+    console.error('Error', error);
     throw error;
   }
 }

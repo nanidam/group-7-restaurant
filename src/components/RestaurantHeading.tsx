@@ -7,26 +7,24 @@ export function RestaurantHeading() {
   const [isLoading, setIsLoading] = useState(true);
   const localRestaurant = localStorage.getItem("restaurant");
 
-  useEffect(() => {
-    if (localRestaurant) {
-      setRestaurant(JSON.parse(localRestaurant));
-      setIsLoading(false);
-    } else {
-      console.log("No restaurant found");
+    useEffect(() => {
+        if(localRestaurant) {
+            setRestaurant(JSON.parse(localRestaurant));
+            setIsLoading(false);
+        } else {
+            console.log('No restaurant found');
+        }
+    }, [localRestaurant]);
+    
+    if(isLoading) {
+        return(
+            <section>
+                <div className="loaderContainer">
+                <Loader></Loader>
+                </div>
+            </section>
+        );
     }
-  }, [localRestaurant]);
-
-  // console.log(restaurant);
-
-  if (isLoading) {
-    return (
-      <section>
-        <div className="loaderContainer">
-          <Loader></Loader>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <>
